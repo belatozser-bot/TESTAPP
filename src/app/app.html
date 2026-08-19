@@ -1,0 +1,107 @@
+<div class="app-container">
+  <!-- Glowing Background Orbs -->
+  <div class="glow-orb orb-1" aria-hidden="true"></div>
+  <div class="glow-orb orb-2" aria-hidden="true"></div>
+
+  <!-- Header / Navigation -->
+  <header class="app-header">
+    <div class="brand">
+      <div class="angular-logo">
+        <svg viewBox="0 0 250 250" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+          <path d="M125 30L31.9 63.2L46.1 186.3L125 230L203.9 186.3L218.1 63.2L125 30Z" fill="url(#angular-grad)"/>
+          <path d="M125 30V230L203.9 186.3L218.1 63.2L125 30Z" fill="#C3002F"/>
+          <path d="M125 58.8L71.4 179.3H95.7L106.6 152.8H143.2L154.1 179.3H178.4L125 58.8ZM136.2 135.2H113.8L125 108.1L136.2 135.2Z" fill="white"/>
+          <defs>
+            <linearGradient id="angular-grad" x1="31.9" y1="30" x2="218.1" y2="230" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#E23237"/>
+              <stop offset="1" stop-color="#B52E31"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <span class="brand-name">TESTAPP</span>
+        <span class="brand-badge">v19.x</span>
+      </div>
+    </div>
+
+    <div class="header-status">
+      <span class="status-dot"></span>
+      <span>Framework: {{ currentTech() }}</span>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="main-content">
+    <section class="hero-section">
+      <div class="pill-badge">
+        <span class="sparkle">✨</span>
+        <span>Standard Angular Setup Completed</span>
+      </div>
+
+      <h1 class="hero-title">
+        <span class="gradient-text">{{ greetingMessage() }}</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Sikeresen felépítettük a legfrissebb standalone Angular projektet modern reaktivitással és letisztult dizájnnal.
+      </p>
+
+      <!-- Interactive Card -->
+      <div class="interactive-card">
+        <div class="card-glow"></div>
+        
+        <div class="card-content">
+          <div class="input-group">
+            <label for="nameInput">Próbáld ki a dinamikus Signal kötést (Írd be a neved):</label>
+            <div class="input-wrapper">
+              <input 
+                id="nameInput"
+                type="text" 
+                [value]="userName()" 
+                (input)="updateName($event)" 
+                placeholder="Írd be a neved..."
+                autocomplete="off"
+              />
+            </div>
+          </div>
+
+          <div class="counter-box">
+            <div class="counter-display">
+              <span class="counter-label">Interaktív számláló:</span>
+              <span class="counter-value">{{ clickCount() }}</span>
+            </div>
+            
+            <div class="counter-actions">
+              <button class="btn btn-primary" (click)="incrementCount()" id="btn-increment">
+                <span>Kattints rám! 🚀</span>
+              </button>
+              <button class="btn btn-secondary" (click)="resetCount()" id="btn-reset" [disabled]="clickCount() === 0">
+                <span>Visszaállítás</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature Grid -->
+    <section class="features-section">
+      <h2 class="section-title">Projekt Felépítés & Képességek</h2>
+      <div class="features-grid">
+        @for (feature of features(); track feature.title) {
+          <div class="feature-card">
+            <div class="feature-icon">{{ feature.icon }}</div>
+            <h3 class="feature-title">{{ feature.title }}</h3>
+            <p class="feature-desc">{{ feature.desc }}</p>
+          </div>
+        }
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <p>Projekt: <strong>TESTAPP</strong> • Távoli tároló: <code>https://github.com/belatozser-bot/TESTAPP.git</code></p>
+  </footer>
+</div>
