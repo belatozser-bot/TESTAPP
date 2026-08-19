@@ -162,7 +162,30 @@
   font-size: 1.125rem;
   color: var(--text-secondary);
   line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.hero-image-container {
+  width: 100%;
   margin-bottom: 2.5rem;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.6), 0 0 30px rgba(99, 102, 241, 0.25);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: scale(1.01);
+    box-shadow: 0 25px 50px -10px rgba(0, 0, 0, 0.7), 0 0 45px rgba(236, 72, 153, 0.35);
+  }
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
 
 /* Interactive Card */
